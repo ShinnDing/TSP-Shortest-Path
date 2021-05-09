@@ -1,8 +1,8 @@
 # TSP
-Traveling Salesperson Problem assigned to three different deliverables (B, C, D) in Algorithms and Data Structures.
 
-*Algorithms and Data Structures assignments.
-This code is posted with instructor's permission, and adheres to Metropolitan State University's policy.
+Algorithms and Data Structures assignments:  Traveling Salesperson Problem.
+
+This code is posted with instructor's permission and adheres to Metropolitan State University's policy.
 
 DelivB assignment summary:  Find the shortest bitonic tour of the cities from westernmost city to easternmost city and back to westernmost city.  The “val” field of the test                               file lists a floating point number that indicates either the latitude or longitude of the city. Output the distance of the shortest bitonic tour,                               and the order of cities in the tour.
 
