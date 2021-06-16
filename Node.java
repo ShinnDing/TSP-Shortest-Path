@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 
 // A node of a graph for the Spring 2018 ICS 340 program
-
 public class Node {
-
 	String name;
 	String val; // The value of the Node, if String
 	String abbrev; // The abbreviation for the Node
@@ -22,11 +20,9 @@ public class Node {
 	public String getAbbrev() {
 		return abbrev;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public String getVal() {
 		return val;
 	}
@@ -66,7 +62,6 @@ public class Node {
 
 	// returns distance from current city to the next city
 	public int findDistance(Node other) {
-
 		// find distance between node we're at and ends at the other node
 		for (Edge e : outgoingEdges) {
 			if (e.getHead().equals(other)) {
@@ -85,7 +80,6 @@ public class Node {
 
 	// returns edge between current node and other
 	public Edge findEdge(Node other) {
-
 		for (Edge e : outgoingEdges) {
 			if (e.getHead().equals(other)) {
 				return e;
