@@ -3,9 +3,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 // Class DelivB does the work for deliverable DelivB of the Prog340
-
 public class DelivB {
-
 	File inputFile;
 	File outputFile;
 	PrintWriter output;
@@ -16,7 +14,7 @@ public class DelivB {
 		inputFile = in;
 		g = gr;
 		sC = sortedCities();
-
+		
 		// Get output file name.
 		String inputFileName = inputFile.toString();
 		String baseFileName = inputFileName.substring(0, inputFileName.length() - 4); // Strip off ".txt"
@@ -66,7 +64,6 @@ public class DelivB {
 
 	// returns list of cities in descending order by val
 	public ArrayList<Node> sortedCities() {
-
 		float[] flArr = fValArray();
 		// Arrays.sort() was found at
 		// https://www.tutorialspoint.com/java/util/arrays_sort_float.htm
@@ -87,9 +84,8 @@ public class DelivB {
 	 
 	// returns list of bitonic tour edges
 	public ArrayList<Edge> getDistance(int i, int j) {
-
 		ArrayList<Edge> path = new ArrayList<Edge>();
-
+		
 		if (i >= j) {
 			return new ArrayList<Edge>();
 		}
@@ -117,7 +113,6 @@ public class DelivB {
 
 	// returns total distance of bitonic tour edges
 	public int distanceOfEdges(ArrayList<Edge> edges) {
-
 		int total = 0;
 		for (Edge e : edges) {
 			total += e.getDist();
@@ -127,7 +122,6 @@ public class DelivB {
 
 	// returns list of edges that make up total distance
 	public ArrayList<Edge> totalDistance() {
-
 		ArrayList<Edge> edges = getDistance(sC.size() - 2, sC.size() - 1);
 		edges.add(sC.get(sC.size() - 2).findEdge(sC.get(sC.size() - 1)));
 
