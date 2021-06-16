@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Graph {
-
 	ArrayList<Node> nodeList;
 	ArrayList<Edge> edgeList;
 
@@ -13,11 +12,10 @@ public class Graph {
 	public ArrayList<Node> getNodeList() {
 		return nodeList;
 	}
-
 	public ArrayList<Edge> getEdgeList() {
 		return edgeList;
 	}
-
+	
 	public void addNode(Node n) {
 		nodeList.add(n);
 	}
