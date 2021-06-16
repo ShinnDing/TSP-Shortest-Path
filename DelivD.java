@@ -10,9 +10,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 // Class DelivD does the work for deliverable DelivD of the Prog340
-
 public class DelivD {
-
 	File inputFile;
 	File outputFile;
 	PrintWriter output;
@@ -25,7 +23,6 @@ public class DelivD {
 	public DelivD(File in, Graph gr) {
 		inputFile = in;
 		g = gr;
-
 		// Get output file name.
 		String inputFileName = inputFile.toString();
 		String baseFileName = inputFileName.substring(0, inputFileName.length() - 4); // Strip off ".txt"
@@ -34,7 +31,6 @@ public class DelivD {
 		if (outputFile.exists()) { // For retests
 			outputFile.delete();
 		}
-
 		try {
 			output = new PrintWriter(outputFile);
 		} catch (Exception x) {
@@ -61,7 +57,6 @@ public class DelivD {
 	public ArrayList<Node> addLongEdges(ArrayList<Node> cities) {
 		int eCountCities = cities.size();
 		int eCountEdges = 0;
-
 		for (Node city : cities) {
 			eCountEdges = city.getOutgoingEdges().size();
 			while (eCountEdges < eCountCities) {
@@ -91,9 +86,7 @@ public class DelivD {
 	// and places all other nodes in between start and goal.
 	// Uses an array to specific index assignments.
 	public Node[] startToGoal(ArrayList<Node> path) {
-
 		Node[] sTG = new Node[path.size()];
-
 		int index = 1;
 		if (VERBOSE) {
 			System.out.print("Path to copy: ");
@@ -128,9 +121,7 @@ public class DelivD {
 
 	// Calculates distance of all cities on the path.
 	public int calculateDistance(Node[] cities) {
-
 		int distance = 0;
-
 		for (int i = 0; i < cities.length - 1; i++) {
 			distance += cities[i].findDistance(cities[i + 1]);
 		}
@@ -140,9 +131,7 @@ public class DelivD {
 	// Calculates distance of all cities on the path
 	// with edges less than 100000.
 	public int calculateShortDistance(Node[] cities) {
-
 		int distance = 0;
-
 		for (int i = 0; i < cities.length - 1; i++) {
 			if (cities[i].findDistance(cities[i + 1]) < longEdge) {
 				distance += cities[i].findDistance(cities[i + 1]);
@@ -153,12 +142,9 @@ public class DelivD {
 
 	// Returns the maximum edge in the cities list.
 	public int findMaxEdge(Node[] cities) {
-
 		int max = cities[0].findDistance(cities[1]);
 		int index = 1;
-
 		for (int i = 1; i < cities.length - 3; i++) {
-
 			int currentDist = cities[i].findDistance(cities[i + 1]);
 			if (currentDist > max) {
 				max = currentDist;
@@ -171,14 +157,11 @@ public class DelivD {
 	// Swaps cities with a max edge with a city 
 	// with a random city between start and goal.
 	public void swapTwoCities(Node[] cities) {
-
 		int cityOneIndex = findMaxEdge(cities);
 		int cityTwoIndex = rand.nextInt(cities.length - 2);
-		
 		if (cityTwoIndex == 0) {
 			cityTwoIndex = cityTwoIndex + 1;
 		}
-
 		Node temp = cities[cityOneIndex];
 		cities[cityOneIndex] = cities[cityTwoIndex];
 		cities[cityTwoIndex] = temp;
@@ -187,10 +170,8 @@ public class DelivD {
 	// Calculates and returns the value of count used
 	// in the for-loop for finding a better path.
 	public int count(Node[] cities) {
-
 		int count = 0;
 		int citySquared = cities.length * cities.length;
-
 		if (cities.length > 100) {
 			count = 200 * citySquared;
 		}
@@ -207,12 +188,10 @@ public class DelivD {
 
 	// Determines whether a better path is found.
 	public void betterPath(Node[] cities) {
-
 		int count = count(cities);
 		int distance = calculateDistance(cities);
 		int startOver = 0;
 		int counter = 0;
-
 		System.out.println("Dist = " + distance + ": " + printCities(cities));
 		output.print("Dist = " + distance + ": " + printCities(cities));
 
@@ -244,12 +223,9 @@ public class DelivD {
 		output.print("Total of " + counter + " paths tried.");
 	}
 
-	// Returns a string of abbreviations for cities
-	// on the current path.
+	// Returns a string of abbreviations for cities on the current path.
 	public String printCities(Node[] cities) {
-
 		String abbrevs = new String();
-
 		for (Node n : cities) {
 			abbrevs += n.getAbbrev() + " ";
 		}
