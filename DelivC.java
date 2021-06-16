@@ -3,9 +3,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 // Class DelivC does the work for deliverable DelivC of the Prog340
-
 public class DelivC {
-
 	File inputFile;
 	File outputFile;
 	PrintWriter output;
@@ -16,7 +14,6 @@ public class DelivC {
 	public DelivC(File in, Graph gr) {
 		inputFile = in;
 		g = gr;
-
 		// Get output file name.
 		String inputFileName = inputFile.toString();
 		String baseFileName = inputFileName.substring(0, inputFileName.length() - 4); // Strip off ".txt"
@@ -49,9 +46,7 @@ public class DelivC {
 
 	// returns node of start city
 	public Node startCity() {
-
 		ArrayList<Node> cNL = copyNodeList();
-
 		for (Node n : cNL) {
 			if (n.isStart()) {
 				return n;
@@ -62,9 +57,7 @@ public class DelivC {
 
 	// returns node of start city
 	public Node goalCity() {
-
 		ArrayList<Node> cNL = copyNodeList();
-
 		for (Node n : cNL) {
 			if (n.isGoal()) {
 				return n;
@@ -77,9 +70,7 @@ public class DelivC {
 	// "Artificial Intelligence, Foundations of Computational
 	// Agents, 2nd Edition" ~ David L. Poole & Alan K. Mackworth
 	public ArrayList<Node> iterativeDS() {
-
 		bound = 0;
-
 		// infinite loop until hitDepthBound boolean is created
 		// outside of method.
 		do {
@@ -111,9 +102,7 @@ public class DelivC {
 	// "Artificial Intelligence, Foundations of Computational
 	// Agents, 2nd Edition" ~ David L. Poole & Alan K. Mackworth
 	public ArrayList<Node> depthBS(ArrayList<Node> path, int b) {
-
 		Node lastCity = path.get(path.size() - 1);
-
 		if (b == 0) {
 			System.out.print("Depth " + bound + ":\n");
 			output.print("Depth " + bound + ":\n");
@@ -147,7 +136,6 @@ public class DelivC {
 	}
 
 	public ArrayList<Node> copyPath(ArrayList<Node> path) {
-
 		ArrayList<Node> copy = new ArrayList<Node>();
 		for (int i = 0; i < path.size(); i++) {
 			copy.add(path.get(i));
@@ -156,7 +144,6 @@ public class DelivC {
 	}
 
 	public ArrayList<Edge> sortEdges(ArrayList<Edge> edges) {
-
 		ArrayList<Edge> list = new ArrayList<Edge>();
 		int manyItems = 0;
 		int current = 1;
