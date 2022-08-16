@@ -1,4 +1,4 @@
-# TSP with AI Iterative Deepending Search algorithm
+# TSP with AI Iterative Deepening Search algorithm
 
 Algorithms and Data Structures assignments:  Traveling Salesperson Problem.
 
